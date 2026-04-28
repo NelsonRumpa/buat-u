@@ -3,7 +3,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Untuk Kamu 🤍</title>
 
   <style>
@@ -46,15 +46,12 @@
 
     h1 {
       font-size: 22px;
-      font-weight: 600;
       color: #333;
-      line-height: 1.5;
     }
 
     p.sub {
       font-size: 15px;
       color: #666;
-      line-height: 1.7;
     }
 
     .btn-row {
@@ -62,7 +59,6 @@
       gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: 0.5rem;
     }
 
     .btn {
@@ -72,20 +68,12 @@
       font-weight: 600;
       cursor: pointer;
       border: 1.5px solid;
-      transition: transform 0.1s, background 0.15s;
     }
-
-    .btn:active { transform: scale(0.96); }
 
     .btn-yes {
       background: #D4537E;
       border-color: #D4537E;
       color: #fff;
-    }
-
-    .btn-yes:hover {
-      background: #993556;
-      border-color: #993556;
     }
 
     .btn-no {
@@ -94,47 +82,26 @@
       color: #888;
     }
 
-    .btn-no:hover { background: #f5f5f5; }
-
-    .nope-msg {
-      font-size: 14px;
-      color: #993556;
-      min-height: 20px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      font-style: italic;
-    }
-
-    .nope-msg.show { opacity: 1; }
-
-    .bounce {
-      animation: bounce 1s infinite alternate;
-      display: inline-block;
-    }
-
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-8px); }
-    }
-
-    /* ✅ VIDEO FIX FINAL (PORTRAIT 9:16) */
     .video-wrap {
       position: relative;
       width: 100%;
-      padding-top: 177.78%; /* rasio 9:16 */
+      padding-top: 177.78%;
       border-radius: 20px;
       overflow: hidden;
       background: #000;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.25);
     }
 
     .video-wrap iframe {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    .fallback {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #666;
     }
 
   </style>
@@ -146,54 +113,36 @@
 
 ```
 <div class="page active" id="page-1">
-  <div class="emoji-big">😔</div>
-  <h1>Maafin aku ya?</h1>
-  <p class="sub">Aku tau aku salah jadi maaf ya plissss 🥺</p>
+  <h1>Maafin aku ya? 🥺</h1>
   <div class="btn-row">
     <button class="btn btn-yes" onclick="go('page-2')">Ya 💕</button>
-    <button class="btn btn-no" onclick="sayNo()">Tidak</button>
+    <button class="btn btn-no" onclick="alert('yah 😔')">Tidak</button>
   </div>
-  <p class="nope-msg" id="nope-msg"></p>
 </div>
 
 <div class="page" id="page-2">
-  <div class="emoji-big">🥺</div>
-  <h1>Eh, beneran maafin aku?</h1>
-  <p class="sub">Nggak pura-pura kan? Aku mau yang tulus nih 😅</p>
+  <h1>Beneran? 😳</h1>
   <div class="btn-row">
-    <button class="btn btn-yes" onclick="go('page-3')">Beneran kok 🤍</button>
-    <button class="btn btn-no" onclick="go('page-1')">Eh tunggu dulu...</button>
-  </div>
-</div>
-
-<div class="page" id="page-3">
-  <div class="emoji-big">😳</div>
-  <h1>Yakin banget udah maafin aku?</h1>
-  <p class="sub">Soalnya aku mau mastiin nih, takut kamu masih sebel 😭</p>
-  <div class="btn-row">
-    <button class="btn btn-yes" onclick="go('page-4')">Yakin banget! 😤</button>
-    <button class="btn btn-no" onclick="go('page-1')">Hmm...</button>
-  </div>
-</div>
-
-<div class="page" id="page-4">
-  <div class="emoji-big">🫣</div>
-  <h1>Oke tapi... masih sayang aku kan?</h1>
-  <p class="sub">Ini yang paling penting 🥹</p>
-  <div class="btn-row">
-    <button class="btn btn-yes" onclick="goFinal()">Masih sayang kok 💗</button>
-    <button class="btn btn-no" onclick="go('page-1')">...</button>
+    <button class="btn btn-yes" onclick="go('page-final')">Iya 🤍</button>
   </div>
 </div>
 
 <div class="page" id="page-final">
-  <div class="emoji-big bounce">🤍</div>
-  <h1>Makasih udah maafin aku 😭💗</h1>
-  <p class="sub">Hehe makasih ya beb udah maafin dengan cara se terpaksa ini xixi 😍😘</p>
+  <h1>Makasih 😭💗</h1>
 
   <div class="video-wrap">
-    <iframe id="myVideo" src="" allow="autoplay" allowfullscreen></iframe>
+    <iframe id="myVideo"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
   </div>
+
+  <p class="fallback">
+    Kalau video nggak jalan, klik 
+    <a href="https://drive.google.com/file/d/180vZPk_RkqRb0DWAqJ5Cn8Mi2JHF7mMJ/view" target="_blank">
+      di sini
+    </a>
+  </p>
 
 </div>
 ```
@@ -201,53 +150,25 @@
   </div>
 
   <script>
-    const nopeMessages = [
-      "please... 🥺",
-      "aku beneran nyesel kok 😔",
-      "aku sabar nunggu kamu 🙏",
-      "ayo dongs hehe 💗",
-      "kiww kiww 🤍",
-      "please... 🥺",
-      "aku beneran nyesel kok 😔",
-      "aku sabar nunggu kamu 🙏",
-      "ayo dongs hehe 💗",
-      "kiww kiww 🤍",
-      "please... 🥺",
-      "aku beneran nyesel kok 😔",
-      "aku sabar nunggu kamu 🙏",
-      "ayo dongs hehe 💗",
-      "kiww kiww 🤍",
-      "please... 🥺",
-      "aku beneran nyesel kok 😔",
-      "aku sabar nunggu kamu 🙏",
-      "ayo dongs hehe 💗",
-      "kiww kiww 🤍",
-      "please... 🥺",
-      "aku beneran nyesel kok 😔",
-      "aku sabar nunggu kamu 🙏",
-      "ayo dongs hehe 💗",
-      "kiww kiww 🤍",
-    ];
-
-    let nopeCount = 0;
-
     function go(pageId) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
+
+      if (pageId === 'page-final') {
+        loadVideo();
+      }
     }
 
-    function sayNo() {
-      const msg = document.getElementById('nope-msg');
-      msg.textContent = nopeMessages[Math.min(nopeCount, nopeMessages.length - 1)];
-      msg.classList.add('show');
-      nopeCount++;
-    }
-
-    function goFinal() {
-      go('page-final');
-
+    function loadVideo() {
       const iframe = document.getElementById("myVideo");
-      iframe.src = "https://drive.google.com/file/d/180vZPk_RkqRb0DWAqJ5Cn8Mi2JHF7mMJ/preview?autoplay=1";
+      const url = "https://drive.google.com/file/d/180vZPk_RkqRb0DWAqJ5Cn8Mi2JHF7mMJ/preview?autoplay=1&mute=1";
+
+      iframe.src = url;
+
+      // retry hack (biar lebih maksa autoplay)
+      setTimeout(() => {
+        iframe.src = url;
+      }, 1000);
     }
   </script>
 
